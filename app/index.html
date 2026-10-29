@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FrasAI – Get the app</title>
+  <meta name="description" content="Learn languages with real sentences. AI corrects and explains every mistake." />
+  <meta property="og:title" content="FrasAI – Learn languages with real sentences" />
+  <meta property="og:description" content="Write whole sentences, get every mistake explained. Free on Google Play." />
+  <meta property="og:image" content="https://frasai.com/app/icon.png" />
+  <link rel="icon" href="icon.png" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a6bf5, #2d4de0);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    main { max-width: 420px; width: 100%; }
+    img.icon { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    h1 { font-size: 2.2rem; font-weight: 800; margin-top: 20px; letter-spacing: -0.5px; }
+    p.tag { font-size: 1.1rem; opacity: .92; margin-top: 10px; line-height: 1.5; }
+    a.play {
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-top: 32px; padding: 14px 26px;
+      background: #111; color: white; text-decoration: none;
+      border-radius: 14px; font-weight: 700; font-size: 1.05rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,.3);
+    }
+    a.play svg { width: 26px; height: 26px; }
+    a.play small { display: block; font-size: .7rem; font-weight: 500; opacity: .8; text-align: left; }
+    p.note { margin-top: 18px; font-size: .85rem; opacity: .75; }
+    footer { margin-top: 40px; font-size: .8rem; opacity: .7; }
+    footer a { color: white; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="icon" src="icon.png" alt="FrasAI app icon" />
+    <h1>FrasAI</h1>
+    <p class="tag">Learn languages with real sentences.<br />AI corrects and explains every mistake.</p>
+    <a class="play" id="play" href="https://play.google.com/store/apps/details?id=com.frasai.app&amp;utm_source=frasai.com&amp;utm_medium=bio_link">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.7-.6-1.2V3c0-.5.2-1 .6-1.2z"/><path fill="#FBBC04" d="m17.1 8.7-3.3 3.3 3.3 3.3 3.7-2.1c.8-.5.8-1.7 0-2.2z"/><path fill="#4285F4" d="M13.8 12 3.6 22.2c.3.2.8.2 1.2 0l12.3-6.9z"/><path fill="#EA4335" d="M3.6 1.8c.4-.2.9-.2 1.2 0l12.3 6.9-3.3 3.3z"/></svg>
+      <span><small>GET IT ON</small>Google Play</span>
+    </a>
+    <p class="note">Free · Android</p>
+    <footer><a href="/">Privacy &amp; Terms</a></footer>
+  </main>
+  <script>
+    // Android: open the Play Store app directly (in-app browsers like Instagram's often can't open play.google.com)
+    (function () {
+      if (!/Android/i.test(navigator.userAgent)) return;
+      var web = document.getElementById('play').href;
+      var intent = 'intent://details?id=com.frasai.app&utm_source=frasai.com#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=' + encodeURIComponent(web) + ';end';
+      document.getElementById('play').href = intent;
+      setTimeout(function () { window.location.href = intent; }, 400);
+    })();
+  </script>
+</body>
+</html>
